@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  proxy-pass:
+    image: whatwewant/proxy-pass:${SERVICE_PROXY_PASS_IMAGE_VERSION}
+    # ports:
+    #   - 0.0.0.0:8080:80
+    environment:
+      # DEBUG: 'true'
+      UPSTREAM: ${SERVICE_PROXY_PASS_REMOTE}
+
+networks:
+  default:
+    external: true
+    name: compose-ingress
